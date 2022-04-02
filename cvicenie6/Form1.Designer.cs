@@ -1,4 +1,5 @@
-﻿namespace cvicenie6
+﻿/*Xaver Zak*/
+namespace cvicenie6
 {
     partial class Form1
     {
