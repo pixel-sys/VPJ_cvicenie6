@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("5555;543");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "ett",
-            "3535"}, -1);
+            this.components = new System.ComponentModel.Container();
             this.radioButton_F = new System.Windows.Forms.RadioButton();
             this.radioButton_C = new System.Windows.Forms.RadioButton();
             this.textBox_step = new System.Windows.Forms.TextBox();
@@ -44,8 +41,14 @@
             this.listView_prevody = new System.Windows.Forms.ListView();
             this.col_teplota1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_teplota2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button_convert = new System.Windows.Forms.Button();
+            this.button_reset = new System.Windows.Forms.Button();
+            this.errorProvider_step = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_min = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_max = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox_jednotka.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_step)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_min)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_max)).BeginInit();
             this.SuspendLayout();
             // 
             // radioButton_F
@@ -94,7 +97,7 @@
             this.groupBox_jednotka.Controls.Add(this.radioButton_C);
             this.groupBox_jednotka.Location = new System.Drawing.Point(32, 24);
             this.groupBox_jednotka.Name = "groupBox_jednotka";
-            this.groupBox_jednotka.Size = new System.Drawing.Size(130, 59);
+            this.groupBox_jednotka.Size = new System.Drawing.Size(176, 59);
             this.groupBox_jednotka.TabIndex = 4;
             this.groupBox_jednotka.TabStop = false;
             this.groupBox_jednotka.Text = "vstupna jednotka";
@@ -142,12 +145,9 @@
             this.col_teplota1,
             this.col_teplota2});
             this.listView_prevody.HideSelection = false;
-            this.listView_prevody.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
             this.listView_prevody.Location = new System.Drawing.Point(38, 143);
             this.listView_prevody.Name = "listView_prevody";
-            this.listView_prevody.Size = new System.Drawing.Size(181, 276);
+            this.listView_prevody.Size = new System.Drawing.Size(294, 276);
             this.listView_prevody.TabIndex = 9;
             this.listView_prevody.UseCompatibleStateImageBehavior = false;
             this.listView_prevody.View = System.Windows.Forms.View.Details;
@@ -155,27 +155,41 @@
             // col_teplota1
             // 
             this.col_teplota1.Text = "Fahrenheit";
+            this.col_teplota1.Width = 85;
             // 
             // col_teplota2
             // 
             this.col_teplota2.Text = "Celsius";
+            this.col_teplota2.Width = 99;
             // 
-            // button_convert
+            // button_reset
             // 
-            this.button_convert.Location = new System.Drawing.Point(168, 60);
-            this.button_convert.Name = "button_convert";
-            this.button_convert.Size = new System.Drawing.Size(75, 23);
-            this.button_convert.TabIndex = 10;
-            this.button_convert.Text = "Convert";
-            this.button_convert.UseVisualStyleBackColor = true;
-            this.button_convert.Click += new System.EventHandler(this.button_convert_Click);
+            this.button_reset.Location = new System.Drawing.Point(214, 24);
+            this.button_reset.Name = "button_reset";
+            this.button_reset.Size = new System.Drawing.Size(189, 59);
+            this.button_reset.TabIndex = 10;
+            this.button_reset.Text = "Purge";
+            this.button_reset.UseVisualStyleBackColor = true;
+            this.button_reset.Click += new System.EventHandler(this.button_purge_Click);
+            // 
+            // errorProvider_step
+            // 
+            this.errorProvider_step.ContainerControl = this;
+            // 
+            // errorProvider_min
+            // 
+            this.errorProvider_min.ContainerControl = this;
+            // 
+            // errorProvider_max
+            // 
+            this.errorProvider_max.ContainerControl = this;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button_convert);
+            this.ClientSize = new System.Drawing.Size(482, 450);
+            this.Controls.Add(this.button_reset);
             this.Controls.Add(this.listView_prevody);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -189,6 +203,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox_jednotka.ResumeLayout(false);
             this.groupBox_jednotka.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_step)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_min)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_max)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,7 +225,10 @@
         private System.Windows.Forms.ListView listView_prevody;
         private System.Windows.Forms.ColumnHeader col_teplota1;
         private System.Windows.Forms.ColumnHeader col_teplota2;
-        private System.Windows.Forms.Button button_convert;
+        private System.Windows.Forms.Button button_reset;
+        private System.Windows.Forms.ErrorProvider errorProvider_step;
+        private System.Windows.Forms.ErrorProvider errorProvider_min;
+        private System.Windows.Forms.ErrorProvider errorProvider_max;
     }
 }
 

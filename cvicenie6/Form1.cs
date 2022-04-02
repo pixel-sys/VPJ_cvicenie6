@@ -38,9 +38,9 @@ namespace cvicenie6
 
         }
 
-        private void button_convert_Click(object sender, EventArgs e)
+        private void button_purge_Click(object sender, EventArgs e)
         {
-            calculate_the_hell_out_of_it();
+            listView_prevody.Items.Clear();
         }
 
         private void textBox_step_TextChanged(object sender, EventArgs e)
@@ -49,8 +49,13 @@ namespace cvicenie6
             { 
                 step = Convert.ToDouble(textBox_step.Text.ToString());
                 calculate_the_hell_out_of_it();
+                errorProvider_step.Clear();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                errorProvider_step.SetError(textBox_step, "invalid input");
+                step = 0;
+            }
         }
 
         private void textBox_min_TextChanged(object sender, EventArgs e)
@@ -58,9 +63,14 @@ namespace cvicenie6
             try
             { 
                 min = Convert.ToDouble(textBox_min.Text.ToString());
-                calculate_the_hell_out_of_it();    
+                calculate_the_hell_out_of_it();  
+                errorProvider_min.Clear();  
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                errorProvider_min.SetError(textBox_min, "invalid input");
+                min = 0;
+            }
         }
 
         private void textBox_max_TextChanged(object sender, EventArgs e)
@@ -69,8 +79,13 @@ namespace cvicenie6
             { 
                 max = Convert.ToDouble(textBox_max.Text.ToString());
                 calculate_the_hell_out_of_it();
+                errorProvider_max.Clear();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                errorProvider_max.SetError(textBox_max, "invalid input");
+                max = 0;
+            }
         }
 
         private void GroupBox_Changed(object sender, EventArgs e)
@@ -86,6 +101,8 @@ namespace cvicenie6
                 listView_prevody.Columns[1].Text = "Fahrenheit";
                 listView_prevody.Columns[0].Text = "Celsius";
             }
+
+            calculate_the_hell_out_of_it();
 
         }
 
