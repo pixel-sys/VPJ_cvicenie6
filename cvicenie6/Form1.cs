@@ -93,6 +93,7 @@ namespace cvicenie6
         {
             if(min >= max) { return false; }
             if(step <= 0 ) { return false; }
+
             return true;
         }
         private void calculate_the_hell_out_of_it()
